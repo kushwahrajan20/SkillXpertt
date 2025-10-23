@@ -6,7 +6,7 @@ import { deleteMediaFromCloudinary, uploadMedia } from "../utils/cloudinary.js";
 export const register = async (req,res) => {
     try {
        
-        const {name, email, password} = req.body; // patel214
+        const {name, email, password} = req.body;
         if(!name || !email || !password){
             return res.status(400).json({
                 success:false,
@@ -73,7 +73,7 @@ export const login = async (req,res) => {
 }
 export const logout = async (_,res) => {
     try {
-        return res.status(200).cookie("token", "", {maxAge:7 * 24 * 60 * 60 * 1000}).json({
+        return res.status(200).cookie("token", "", {maxAge:0}).json({
             message:"Logged out successfully.",
             success:true
         })
